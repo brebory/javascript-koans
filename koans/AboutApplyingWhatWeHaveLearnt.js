@@ -101,13 +101,20 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+  /* 
   it("should find the largest prime factor of a composite number", function () {
   
-  });
+  });*/
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+    var largestPalindrome = _(_(_(_.range(100, 999)).map(function(n) { 
+      return _(_.range(n, 999)).map(function(x) { 
+        return x * n; 
+      }); 
+    })).flatten().filter(function(num) { 
+      num.toString().split("").reverse().join("") === num.toString(); 
+    })).max();
+    expect(largestPalindrome).toBe(906609);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
@@ -122,5 +129,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+  
 });
